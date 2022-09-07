@@ -12,9 +12,9 @@ namespace Provider.Controllers
     {
         private static List<Product> products = new List<Product>
             {
-                new Product { id = "2", type = "SNACK", name = "muesli bar"},
-                new Product { id = "10", type = "LUNCH", name = "sandwich"},
-                new Product { id = "27", type = "DINNER", name = "burger"}
+                new Product { id = 2.0, type = "SNACK", name = "muesli bar"},
+                new Product { id = 10.1, type = "LUNCH", name = "sandwich"},
+                new Product { id = 27, type = "DINNER", name = "burger"}
 
             };
 
@@ -26,10 +26,10 @@ namespace Provider.Controllers
         }
 
         // GET /products/{id}
-        [HttpGet("{id:int}")]
+        [HttpGet("{id:double}")]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         [ProducesResponseType(StatusCodes.Status200OK)]
-        public ActionResult<Product> GetProduct(string id)
+        public ActionResult<Product> GetProduct(double id)
         {
             var product = products.FirstOrDefault(product => product.id == id);
 

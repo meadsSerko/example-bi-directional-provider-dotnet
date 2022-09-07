@@ -2,7 +2,7 @@
   "openapi": "3.0.1",
   "info": {
     "title": "ProviderExample.Api",
-    "version": "v1"
+    "version": "v2"
   },
   "paths": {
     "/Products": {
@@ -54,7 +54,8 @@
             "in": "path",
             "required": true,
             "schema": {
-              "type": "string"
+              "type": "number",
+              "format": "double"
             }
           }
         ],
@@ -92,8 +93,8 @@
         "type": "object",
         "properties": {
           "id": {
-            "type": "string",
-            "nullable": true
+            "type": "number",
+            "format": "double"
           },
           "type": {
             "type": "string",

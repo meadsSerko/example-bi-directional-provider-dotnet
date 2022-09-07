@@ -22,7 +22,7 @@ namespace example_bi_directional_provider_dotnet.core
             services.AddControllers();
             services.AddSwaggerGen(c =>
             {
-                c.SwaggerDoc("v1", new OpenApiInfo { Title = "ProviderExample.Api", Version = "v1" });
+                c.SwaggerDoc("v2", new OpenApiInfo { Title = "ProviderExample.Api", Version = "v2" });
             });
             services.Configure<ConsoleLifetimeOptions>(options =>  // configure the options
                options.SuppressStatusMessages = true);
@@ -36,8 +36,12 @@ namespace example_bi_directional_provider_dotnet.core
                 app.UseDeveloperExceptionPage();
             }
             app.UseSwagger();
-            app.UseSwaggerUI();
-            app.UseRouting();
+            //app.UseSwaggerUI();
+            app.UseSwaggerUI(options =>
+            {
+                options.SwaggerEndpoint("/swagger/v2/swagger.json", "v2");
+                app.UseRouting();
+            });
 
             app.UseAuthorization();
 
